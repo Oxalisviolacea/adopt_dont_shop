@@ -1,6 +1,7 @@
 class ShelterpetsController < ApplicationController
   def index
-    @shelter = Shelter.find(params[:shelter_id])
+    require 'pry'; binding.pry
+    @shelter = Shelter.find(params[:id])
     @pets = @shelter.pets
   end
 
@@ -8,15 +9,17 @@ class ShelterpetsController < ApplicationController
 
   def create
     pet = Pet.new({
-                            name: params[:pet][:name],
-                            address: params[:pet][:address],
-                            city: params[:pet][:city],
-                            state: params[:pet][:state],
-                            zip_code: params[:pet][:zip_code]
-                          })
+                    image: params[:image],
+                    name: params[:name],
+                    age: params[:age],
+                    sex: params[:sex],
+                    shelter_id: params[:shelter_id],
+                    status: params[:status],
+                    description: params[:description]
+                  })
 
     pet.save
 
-    # redirect_to '/pets'
+    redirect_to '/shelters/params[:id]/pets'
   end
 end
