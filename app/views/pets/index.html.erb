@@ -2,11 +2,9 @@
 
 <% @pets.each do |pet| %>
 <h3><%= pet.name %></h3>
+<img src="<%= pet.image %>" alt="Picture of the pet">
 <ul>
-  <li><img src="<%= pet.image %>" alt="Picture of the pet"></li>
-  <li>Name:<%= pet.image %></li>
-  <li>Approximate Age:<%= pet.image %></li>
-  <li>Sex:<%= pet.image %></li>
-  <li>Located at:<%= pet.image %></li>
+  <li><%= pet.description %></li>
 </ul>
 <% end %>
+<!-- <a href="/pets/new">New Pet</a> -->
