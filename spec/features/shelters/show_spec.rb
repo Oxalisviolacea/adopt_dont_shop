@@ -11,13 +11,14 @@ RSpec.describe "As a visitor", type: :feature do
     end 
 
     it "I see the shelter with that id including the shelter's information" do
-      visit "/shelters/1"
+      visit "/shelters/#{@shelter_1.id}"
 
       expect(page).to have_content(@shelter_1.name)
       expect(page).to have_content(@shelter_1.address)
       expect(page).to have_content(@shelter_1.city)
       expect(page).to have_content(@shelter_1.state)
       expect(page).to have_content(@shelter_1.zip_code)
+      expect(page).to have_link("Update Shelter")
     end
   end
 end

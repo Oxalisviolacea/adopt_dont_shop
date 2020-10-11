@@ -15,13 +15,15 @@ RSpec.describe "As a visitor", type: :feature do
                           zip_code: 22222)
     end 
 
-    it "I see the name of each shelter in the database" do
+    it "I see the name of each shelter in the database and a link to add a new one" do
       visit "/shelters"
 
       expect(page).to have_content(@shelter_1.name)
       expect(page).to have_link(@shelter_1.name)
       expect(page).to have_content(@shelter_2.name)
       expect(page).to have_link(@shelter_2.name)
+
+      expect(page).to have_link("New Shelter")
     end
 
     # it "I can create a new shelter"
